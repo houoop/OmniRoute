@@ -18,6 +18,8 @@ import {
 import { setNoLog } from "../compliance/noLog";
 import { resolveModelAlias } from "@omniroute/open-sse/services/modelDeprecation.ts";
 import { getProviderAlias, resolveProviderId } from "@/shared/constants/providers";
+import { getProviderPrefixIndex } from "@/lib/providerNodePrefixes";
+import { getComboByName } from "@/lib/db/combos";
 import { getSyncedAvailableModelsByConnection, getCustomModels, getModelIsHidden } from "./models";
 import {
   CLAUDE_CODE_PROVIDER_PREFIXES,
@@ -219,6 +221,25 @@ interface ApiKeyView extends JsonRecord {
 const _keyValidationCache = new Map<string, { valid: boolean; timestamp: number }>();
 const _keyMetadataCache = new Map<string, CacheEntry<ApiKeyMetadata>>();
 const _lastUsedUpdateCache = new Map<string, number>();
+/** provider prefix/alias → stored provider id (resolved via the node table). */
+const _providerPrefixToNodeCache = new Map<string, string>();
+/**
+ * TTL cache of the whole prefix→nodeId index. `getProviderPrefixIndex()` reads
+ * the provider_nodes table on every call, and `isModelAllowedForKey` runs once
+ * per catalog row — caching the map keeps that from becoming N table reads.
+ */
+let _providerPrefixIndexCache: { map: Map<string, string>; timestamp: number } | null = null;
+const PROVIDER_PREFIX_INDEX_TTL = 60 * 1000;
+/**
+ * Combo names are bare ids (no slash) or the built-in virtual `auto/*` set and
+ * must not go through the published-model provider lookup:
+ * `getPublishedModelLookupTarget` yields a null/empty provider+model pair for
+ * them, which made `disableNonPublicModels` reject every combo (including the
+ * built-in `auto/*` set) from `/v1/models`. Memoized because the catalog
+ * queries this once per advertised model.
+ */
+const _comboNameCache = new Map<string, boolean>();
+const COMBO_NAME_TTL = 60 * 1000;
 const CACHE_TTL = 60 * 1000; // 1 minute TTL
 const LAST_USED_UPDATE_TTL = 5 * 60 * 1000;
 const MAX_CACHE_SIZE = 1000;
@@ -255,10 +276,110 @@ function invalidateCaches() {
   _keyMetadataCache.clear();
   clearModelPermissionCache();
   _lastUsedUpdateCache.clear();
+  _providerPrefixToNodeCache.clear();
+  _providerPrefixIndexCache = null;
+  _comboNameCache.clear();
 }
 
 function toRecord(value: unknown): JsonRecord {
   return value && typeof value === "object" ? (value as JsonRecord) : {};
+}
+
+/**
+ * Resolve a provider *prefix* or built-in *alias* to the id the
+ * synced/custom-model stores are keyed by.
+ *
+ * `syncedAvailableModels` / `customModels` rows are stored under the raw
+ * provider id (`provider_connections.provider`), which for a compatible
+ * provider node is the generated UUID (`openai-compatible-chat-<uuid>`) — NOT
+ * the operator-facing `prefix` (e.g. `codebuddy`) that the public catalog
+ * advertises in `provider/model` ids. A built-in provider's alias (`cmd` →
+ * `command-code`) has the same mismatch.
+ *
+ * Without this, `getSyncedAvailableModelsByConnection(<prefix>)` queries
+ * `LIKE '<prefix>:%'`, matches nothing, and `disableNonPublicModels` rejects
+ * every model of the provider — the whole provider silently vanishes from
+ * `/v1/models` while its ids stay routable.
+ *
+ * Resolution order (most specific first):
+ *   1. Built-in registry alias/id (`cmd` → `command-code`, `codex` → `codex`).
+ *   2. Unique non-reserved compatible-node prefix (`codebuddy` → node UUID).
+ * Unknown values pass through unchanged (fail-open, matching prior behavior).
+ */
+async function resolveStoredProviderIdForPrefix(prefixOrAlias: string): Promise<string> {
+  const normalized = prefixOrAlias.trim();
+  if (!normalized) return normalized;
+
+  // 1. Built-in registry alias / id (also covers the id == prefix case).
+  const builtInId = resolveProviderId(normalized);
+  if (builtInId && builtInId !== normalized) return builtInId;
+
+  // 2. Compatible provider node prefix → node id (memoized per prefix).
+  const cached = _providerPrefixToNodeCache.get(normalized);
+  if (cached !== undefined) return cached;
+
+  const nodeId = await lookupNodeIdForPrefix(normalized);
+  if (nodeId) {
+    _providerPrefixToNodeCache.set(normalized, nodeId);
+    return nodeId;
+  }
+
+  return builtInId || normalized;
+}
+
+/** Read `prefixToNode` from the node table, memoized behind a short TTL. */
+async function lookupNodeIdForPrefix(prefix: string): Promise<string | null> {
+  const now = Date.now();
+  if (
+    !_providerPrefixIndexCache ||
+    now - _providerPrefixIndexCache.timestamp > PROVIDER_PREFIX_INDEX_TTL
+  ) {
+    try {
+      const { prefixToNode } = await getProviderPrefixIndex();
+      _providerPrefixIndexCache = { map: prefixToNode, timestamp: now };
+    } catch {
+      // Node table unavailable — leave the cache empty and fall through.
+      _providerPrefixIndexCache = { map: new Map(), timestamp: now };
+    }
+  }
+  return _providerPrefixIndexCache.map.get(prefix) ?? null;
+}
+
+/**
+ * Whether `modelId` names a combo (user-defined or built-in virtual).
+ *
+ * Combo access is governed by the key's `allowedCombos` rules at request time
+ * (`apiKeyPolicy.isComboAllowedForKey`), NOT by the published-model gate. The
+ * catalog's `isModelAllowedForKey` pass runs over every advertised row, and a
+ * bare combo name has no `provider/model` shape, so without this exemption
+ * every combo is dropped from `/v1/models` whenever `disableNonPublicModels`
+ * is on — including the built-in `auto/*` set.
+ */
+async function isRegisteredComboName(modelId: string): Promise<boolean> {
+  const trimmed = modelId.trim();
+  if (!trimmed) return false;
+
+  // Built-in virtual `auto/*` combos are synthesized in the catalog (not rows in
+  // the combos table), so they can never be found by name lookup. Their ids are
+  // bare (`auto`) or prefixed (`auto/best-coding`).
+  if (trimmed === "auto" || trimmed.startsWith("auto/")) return true;
+
+  // User-defined combos have a bare name with no provider slash.
+  if (trimmed.includes("/")) return false;
+
+  const cached = _comboNameCache.get(trimmed);
+  if (cached !== undefined) return cached;
+
+  let found = false;
+  try {
+    found = (await getComboByName(trimmed)) !== null;
+  } catch {
+    found = false;
+  }
+  // Negative results are cached too: the catalog asks about every non-slash id.
+  _comboNameCache.set(trimmed, found);
+  setTimeout(() => _comboNameCache.delete(trimmed), COMBO_NAME_TTL).unref?.();
+  return found;
 }
 
 function isConfiguredEnvApiKey(key: string): boolean {
@@ -376,7 +497,7 @@ async function getPublishedModelLookupTarget(
     if (!providerScopedModel) return null;
     const providerId = CLAUDE_CODE_PROVIDER_PREFIXES.has(providerOrAlias)
       ? "claude"
-      : providerOrAlias;
+      : await resolveStoredProviderIdForPrefix(providerOrAlias);
     return { providerId, modelId: providerScopedModel };
   }
 
@@ -1522,24 +1643,31 @@ export async function isModelAllowedForKey(
     const resolvedModelId = resolveModelAlias(modelId);
     const effectiveModelId = resolvedModelId || modelId;
 
-    if (!hasClaudeCodeWildcardPermission(allowedModels, modelPermissionCandidates)) {
-      const lookupTarget = await getPublishedModelLookupTarget(effectiveModelId);
-      const providerId = lookupTarget?.providerId || effectiveModelId.split("/")[0];
-      const shortModelId = lookupTarget?.modelId || effectiveModelId.split("/").slice(1).join("/");
-      if (!providerId || !shortModelId) return false;
+    // Combo ids are bare names with no `provider/model` shape, so the
+    // published-model lookup below can never resolve them and every combo
+    // (user-defined and built-in `auto/*`) would be rejected. Combo access is
+    // enforced separately by the key's `allowedCombos` rules at request time.
+    if (!(await isRegisteredComboName(effectiveModelId))) {
+      if (!hasClaudeCodeWildcardPermission(allowedModels, modelPermissionCandidates)) {
+        const lookupTarget = await getPublishedModelLookupTarget(effectiveModelId);
+        const providerId = lookupTarget?.providerId || effectiveModelId.split("/")[0];
+        const shortModelId =
+          lookupTarget?.modelId || effectiveModelId.split("/").slice(1).join("/");
+        if (!providerId || !shortModelId) return false;
 
-      const syncedModelsByConnection = await getSyncedAvailableModelsByConnection(providerId);
-      const customModels = await getCustomModels(providerId);
+        const syncedModelsByConnection = await getSyncedAvailableModelsByConnection(providerId);
+        const customModels = await getCustomModels(providerId);
 
-      // Combine synced and custom models
-      const allDiscoveredModels = Object.values(syncedModelsByConnection)
-        .flat()
-        .concat(customModels);
-      const discovered = allDiscoveredModels.some((m) => m.id === shortModelId);
-      if (!discovered) return false;
+        // Combine synced and custom models
+        const allDiscoveredModels = Object.values(syncedModelsByConnection)
+          .flat()
+          .concat(customModels);
+        const discovered = allDiscoveredModels.some((m) => m.id === shortModelId);
+        if (!discovered) return false;
 
-      const isPublic = !getModelIsHidden(providerId, shortModelId);
-      if (!isPublic) return false;
+        const isPublic = !getModelIsHidden(providerId, shortModelId);
+        if (!isPublic) return false;
+      }
     }
   }
 
