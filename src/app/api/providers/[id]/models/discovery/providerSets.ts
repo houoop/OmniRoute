@@ -95,6 +95,7 @@ export const NAMED_OPENAI_STYLE_PROVIDERS = new Set([
   "internlm",
   "ant-ling",
   "nanogpt",
+  "nara",
   // Logfare (https://logfare.ai) — free OpenAI-compatible gateway live-verified
   // 2026-08-21: GET https://logfare.ai/v1/models returns a real 20-model catalog
   // (11 chat-capable). Live fetch keeps it fresh; the registry seed stays as the
@@ -105,6 +106,8 @@ export const NAMED_OPENAI_STYLE_PROVIDERS = new Set([
   // Without this, sync-models serves the static registry seed and CN
   // connections never discover 2.5/3.0 Flash.
   "agnes",
+  // Agnes CN /v1/models is not the intl catalog; this discovers that host only.
+  "agnes-cn",
 ]);
 
 export function isNamedOpenAIStyleProvider(provider: string): boolean {

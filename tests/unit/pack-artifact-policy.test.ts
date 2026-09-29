@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
 
 import {
   APP_STAGING_ALLOWED_EXACT_PATHS,
@@ -284,6 +284,7 @@ test("findMissingArtifactPaths flags missing root runtime files in the tarball",
     "bin/aliasResolver.mjs",
     "bin/aliasResolverHook.mjs",
     "bin/cli/data-dir.mjs",
+    "bin/cli/privateDataDir.mjs",
     "bin/cli/program.mjs",
     "bin/cli/utils/ensureAndroidCacheDir.mjs",
     "bin/cli/utils/parseEnvValue.mjs",
@@ -299,6 +300,8 @@ test("findMissingArtifactPaths flags missing root runtime files in the tarball",
     "config/release/wreq-js-rust-notices.md",
     "dist/head-response-guard.cjs",
     "dist/http-method-guard.cjs",
+    // #13636/#14064: server-ws.mjs crash guard, enforced by the closure suites.
+    "dist/httpClientAbortGuard.mjs",
     "dist/main-server-timeouts.mjs",
     "dist/open-sse/services/compression/engines/rtk/filters/generic-output.json",
     "dist/open-sse/services/compression/rules/en/filler.json",
@@ -306,6 +309,7 @@ test("findMissingArtifactPaths flags missing root runtime files in the tarball",
     "dist/peer-stamp.mjs",
     "dist/responses-ws-proxy.mjs",
     "dist/server-ws.mjs",
+    "dist/src/lib/db/healthCheckWorker.js",
     "dist/src/lib/usage/callLogArtifactWorker.js",
     "dist/systemd-notify.mjs",
     "dist/tls-options.mjs",
@@ -318,4 +322,19 @@ test("findMissingArtifactPaths flags missing root runtime files in the tarball",
     "scripts/packs/optionalPackManifest.mjs",
     "src/shared/utils/nodeRuntimeSupport.ts",
   ]);
+});
+
+test("every shipped @omniroute workspace package is covered by an artifact prefix", () => {
+  const packageJson = JSON.parse(readFileSync("package.json", "utf8")) as { files: string[] };
+  assert.ok(packageJson.files.includes("@omniroute/"));
+
+  const workspacePackages = readdirSync("@omniroute", { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && existsSync(`@omniroute/${entry.name}/package.json`))
+    .map((entry) => `@omniroute/${entry.name}/`);
+
+  assert.ok(workspacePackages.includes("@omniroute/opencode-plugin-v2/"));
+  const uncovered = workspacePackages.filter(
+    (prefix) => !PACK_ARTIFACT_ALLOWED_PATH_PREFIXES.includes(prefix)
+  );
+  assert.deepEqual(uncovered, []);
 });

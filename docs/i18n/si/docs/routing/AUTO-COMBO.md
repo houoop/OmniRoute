@@ -1,21 +1,12 @@
-# AUTO-COMBO (සිංහල)
+# OmniRoute Auto-Combo Engine (සිංහල)
 
-🌐 **Languages:** 🇺🇸 [English](../../../../routing/AUTO-COMBO.md) · 🇸🇦 [ar](../../../ar/docs/routing/AUTO-COMBO.md) · 🇦🇿 [az](../../../az/docs/routing/AUTO-COMBO.md) · 🇧🇬 [bg](../../../bg/docs/routing/AUTO-COMBO.md) · 🇧🇩 [bn](../../../bn/docs/routing/AUTO-COMBO.md) · 🇨🇿 [cs](../../../cs/docs/routing/AUTO-COMBO.md) · 🇩🇰 [da](../../../da/docs/routing/AUTO-COMBO.md) · 🇩🇪 [de](../../../de/docs/routing/AUTO-COMBO.md) · 🇬🇷 [el](../../../el/docs/routing/AUTO-COMBO.md) · 🇪🇸 [es](../../../es/docs/routing/AUTO-COMBO.md) · 🇪🇪 [et](../../../et/docs/routing/AUTO-COMBO.md) · 🇮🇷 [fa](../../../fa/docs/routing/AUTO-COMBO.md) · 🇫🇮 [fi](../../../fi/docs/routing/AUTO-COMBO.md) · 🇫🇷 [fr](../../../fr/docs/routing/AUTO-COMBO.md) · 🇮🇪 [ga](../../../ga/docs/routing/AUTO-COMBO.md) · 🇮🇳 [gu](../../../gu/docs/routing/AUTO-COMBO.md) · 🇮🇱 [he](../../../he/docs/routing/AUTO-COMBO.md) · 🇮🇳 [hi](../../../hi/docs/routing/AUTO-COMBO.md) · 🇭🇷 [hr](../../../hr/docs/routing/AUTO-COMBO.md) · 🇭🇺 [hu](../../../hu/docs/routing/AUTO-COMBO.md) · 🇮🇩 [id](../../../id/docs/routing/AUTO-COMBO.md) · 🇮🇹 [it](../../../it/docs/routing/AUTO-COMBO.md) · 🇯🇵 [ja](../../../ja/docs/routing/AUTO-COMBO.md) · 🇰🇭 [km](../../../km/docs/routing/AUTO-COMBO.md) · 🇮🇳 [kn](../../../kn/docs/routing/AUTO-COMBO.md) · 🇰🇷 [ko](../../../ko/docs/routing/AUTO-COMBO.md) · 🇱🇹 [lt](../../../lt/docs/routing/AUTO-COMBO.md) · 🇱🇻 [lv](../../../lv/docs/routing/AUTO-COMBO.md) · 🇮🇳 [ml](../../../ml/docs/routing/AUTO-COMBO.md) · 🇮🇳 [mr](../../../mr/docs/routing/AUTO-COMBO.md) · 🇲🇾 [ms](../../../ms/docs/routing/AUTO-COMBO.md) · 🇲🇹 [mt](../../../mt/docs/routing/AUTO-COMBO.md) · 🇲🇲 [my](../../../my/docs/routing/AUTO-COMBO.md) · 🇳🇵 [ne](../../../ne/docs/routing/AUTO-COMBO.md) · 🇳🇱 [nl](../../../nl/docs/routing/AUTO-COMBO.md) · 🇳🇴 [no](../../../no/docs/routing/AUTO-COMBO.md) · 🇮🇳 [or](../../../or/docs/routing/AUTO-COMBO.md) · 🇮🇳 [pa](../../../pa/docs/routing/AUTO-COMBO.md) · 🇵🇭 [phi](../../../phi/docs/routing/AUTO-COMBO.md) · 🇵🇱 [pl](../../../pl/docs/routing/AUTO-COMBO.md) · 🇵🇹 [pt](../../../pt/docs/routing/AUTO-COMBO.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/routing/AUTO-COMBO.md) · 🇷🇴 [ro](../../../ro/docs/routing/AUTO-COMBO.md) · 🇷🇺 [ru](../../../ru/docs/routing/AUTO-COMBO.md) · 🇸🇰 [sk](../../../sk/docs/routing/AUTO-COMBO.md) · 🇸🇮 [sl](../../../sl/docs/routing/AUTO-COMBO.md) · 🇷🇸 [sr](../../../sr/docs/routing/AUTO-COMBO.md) · 🇸🇪 [sv](../../../sv/docs/routing/AUTO-COMBO.md) · 🇰🇪 [sw](../../../sw/docs/routing/AUTO-COMBO.md) · 🇮🇳 [ta](../../../ta/docs/routing/AUTO-COMBO.md) · 🇮🇳 [te](../../../te/docs/routing/AUTO-COMBO.md) · 🇹🇭 [th](../../../th/docs/routing/AUTO-COMBO.md) · 🇹🇷 [tr](../../../tr/docs/routing/AUTO-COMBO.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/routing/AUTO-COMBO.md) · 🇵🇰 [ur](../../../ur/docs/routing/AUTO-COMBO.md) · 🇻🇳 [vi](../../../vi/docs/routing/AUTO-COMBO.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/routing/AUTO-COMBO.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/routing/AUTO-COMBO.md)
-
----
+🌐 **Languages:** 🇺🇸 [English](../../../../routing/AUTO-COMBO.md) · 🇪🇹 [am](../../../am/docs/routing/AUTO-COMBO.md) · 🇸🇦 [ar](../../../ar/docs/routing/AUTO-COMBO.md) · 🇦🇿 [az](../../../az/docs/routing/AUTO-COMBO.md) · 🇧🇬 [bg](../../../bg/docs/routing/AUTO-COMBO.md) · 🇧🇩 [bn](../../../bn/docs/routing/AUTO-COMBO.md) · 🇧🇦 [bs](../../../bs/docs/routing/AUTO-COMBO.md) · 🇨🇿 [cs](../../../cs/docs/routing/AUTO-COMBO.md) · 🇩🇰 [da](../../../da/docs/routing/AUTO-COMBO.md) · 🇩🇪 [de](../../../de/docs/routing/AUTO-COMBO.md) · 🇬🇷 [el](../../../el/docs/routing/AUTO-COMBO.md) · 🇪🇸 [es](../../../es/docs/routing/AUTO-COMBO.md) · 🇪🇪 [et](../../../et/docs/routing/AUTO-COMBO.md) · 🇮🇷 [fa](../../../fa/docs/routing/AUTO-COMBO.md) · 🇫🇮 [fi](../../../fi/docs/routing/AUTO-COMBO.md) · 🇫🇷 [fr](../../../fr/docs/routing/AUTO-COMBO.md) · 🇮🇪 [ga](../../../ga/docs/routing/AUTO-COMBO.md) · 🇮🇳 [gu](../../../gu/docs/routing/AUTO-COMBO.md) · 🇳🇬 [ha](../../../ha/docs/routing/AUTO-COMBO.md) · 🇮🇱 [he](../../../he/docs/routing/AUTO-COMBO.md) · 🇮🇳 [hi](../../../hi/docs/routing/AUTO-COMBO.md) · 🇭🇷 [hr](../../../hr/docs/routing/AUTO-COMBO.md) · 🇭🇺 [hu](../../../hu/docs/routing/AUTO-COMBO.md) · 🇦🇲 [hy](../../../hy/docs/routing/AUTO-COMBO.md) · 🇮🇩 [id](../../../id/docs/routing/AUTO-COMBO.md) · 🇳🇬 [ig](../../../ig/docs/routing/AUTO-COMBO.md) · 🇮🇹 [it](../../../it/docs/routing/AUTO-COMBO.md) · 🇯🇵 [ja](../../../ja/docs/routing/AUTO-COMBO.md) · 🇬🇪 [ka](../../../ka/docs/routing/AUTO-COMBO.md) · 🇰🇭 [km](../../../km/docs/routing/AUTO-COMBO.md) · 🇮🇳 [kn](../../../kn/docs/routing/AUTO-COMBO.md) · 🇰🇷 [ko](../../../ko/docs/routing/AUTO-COMBO.md) · 🇱🇹 [lt](../../../lt/docs/routing/AUTO-COMBO.md) · 🇱🇻 [lv](../../../lv/docs/routing/AUTO-COMBO.md) · 🇮🇳 [ml](../../../ml/docs/routing/AUTO-COMBO.md) · 🇮🇳 [mr](../../../mr/docs/routing/AUTO-COMBO.md) · 🇲🇾 [ms](../../../ms/docs/routing/AUTO-COMBO.md) · 🇲🇹 [mt](../../../mt/docs/routing/AUTO-COMBO.md) · 🇲🇲 [my](../../../my/docs/routing/AUTO-COMBO.md) · 🇳🇵 [ne](../../../ne/docs/routing/AUTO-COMBO.md) · 🇳🇱 [nl](../../../nl/docs/routing/AUTO-COMBO.md) · 🇳🇴 [no](../../../no/docs/routing/AUTO-COMBO.md) · 🇮🇳 [or](../../../or/docs/routing/AUTO-COMBO.md) · 🇮🇳 [pa](../../../pa/docs/routing/AUTO-COMBO.md) · 🇵🇭 [phi](../../../phi/docs/routing/AUTO-COMBO.md) · 🇵🇱 [pl](../../../pl/docs/routing/AUTO-COMBO.md) · 🇵🇹 [pt](../../../pt/docs/routing/AUTO-COMBO.md) · 🇧🇷 [pt-BR](../../../pt-BR/docs/routing/AUTO-COMBO.md) · 🇷🇴 [ro](../../../ro/docs/routing/AUTO-COMBO.md) · 🇷🇺 [ru](../../../ru/docs/routing/AUTO-COMBO.md) · 🇸🇰 [sk](../../../sk/docs/routing/AUTO-COMBO.md) · 🇸🇮 [sl](../../../sl/docs/routing/AUTO-COMBO.md) · 🇷🇸 [sr](../../../sr/docs/routing/AUTO-COMBO.md) · 🇸🇪 [sv](../../../sv/docs/routing/AUTO-COMBO.md) · 🇰🇪 [sw](../../../sw/docs/routing/AUTO-COMBO.md) · 🇮🇳 [ta](../../../ta/docs/routing/AUTO-COMBO.md) · 🇮🇳 [te](../../../te/docs/routing/AUTO-COMBO.md) · 🇹🇭 [th](../../../th/docs/routing/AUTO-COMBO.md) · 🇹🇷 [tr](../../../tr/docs/routing/AUTO-COMBO.md) · 🇺🇦 [uk-UA](../../../uk-UA/docs/routing/AUTO-COMBO.md) · 🇵🇰 [ur](../../../ur/docs/routing/AUTO-COMBO.md) · 🇺🇿 [uz](../../../uz/docs/routing/AUTO-COMBO.md) · 🇻🇳 [vi](../../../vi/docs/routing/AUTO-COMBO.md) · 🇳🇬 [yo](../../../yo/docs/routing/AUTO-COMBO.md) · 🇨🇳 [zh-CN](../../../zh-CN/docs/routing/AUTO-COMBO.md) · 🇹🇼 [zh-TW](../../../zh-TW/docs/routing/AUTO-COMBO.md)
 
 ---
 
-title: "OmniRoute Auto-Combo Engine"
-version: 3.8.40
-lastUpdated: 2026-06-28
----
+> **පරිශීලකයින් සඳහා**: ඉක්මන් ආරම්භයක් සොයනවාද? සරල පැහැදිලි කිරීම් සහ උදාහරණ සඳහා [ස්වයංක්රීය-සංයෝජන පරිශීලක මාර්ගෝපදේශය](../getting-started/AUTO-COMBO-GUIDE.md) බලන්න.
 
-# OmniRoute Auto-Combo Engine
-
-> **පරිශීලකයින් සඳහා**: ඉක්මන් ආරම්භයක් සොයනවාද? සරල පැහැදිලි කිරීම් සහ උදාහරණ සඳහා [Auto-Combo පරිශීලක මාර්ගෝපදේශය](../getting-started/AUTO-COMBO-GUIDE.md) බලන්න.
-
-> අනුවර්තී ලකුණුකරණය + වින්යාස-රහිත ස්වයංක්රීය රවුටින් සහිත ස්වයං-කළමනාකරණය වන ආකෘති දාම
+> අනුවර්තී ලකුණුකරණය + වින්යාස කිරීමකින් තොර ස්වයංක්රීය මාර්ගගත කිරීම සහිත ස්වයං-කළමනාකරණ ආකෘති දාම
 
 ## වින්යාස-රහිත ස්වයංක්රීය රවුටින් (`auto/` උපසර්ගය)
 
@@ -203,9 +194,9 @@ Auto-Combo Engine එක **සාධක 16ක ලකුණුකරණ ශ්ර
 
 **එකතුව:** `DEFAULT_WEIGHTS` හි ප්රකාශ කර ඇති පරිදි `0.1429 + 0.1605 + 0.1429 + 0.1143 + 0.0762 + (7 × 0.0476) + 0.00 + 0.00 + 0.03 + 0.00 = 1.0`; ලකුණුකරණයට පෙර පරිශීලකයා වින්යාස කළ බර `normalizeScoringWeights()` මඟින් ව්යාප්තියක් බවට නැවත සාමාන්යකරණය කෙරේ.
 
-## මාදිලි ඇසුරුම්
+## ප්රකාර ඇසුරුම්
 
-`open-sse/services/autoCombo/modePacks.ts` හි පූර්ව-නිර්වචිත බර පැතිකඩ 6ක් ඇත. එක් එක් ඇසුරුම තේරීම එක් ඉලක්කයක් වෙත නැඹුරු කිරීම සඳහා පෙරනිමි බර සම්පූර්ණයෙන්ම ප්රතිස්ථාපනය කරයි. සෑම ඇසුරුමකම එකතුව දැනටමත් `1.0` වේ (දශමස්ථාන හතරකට මුද්රණය කළ විට `0.9999`), එබැවින් ඇසුරුමක් සක්රියව ඇති විට `normalizeScoringWeights()` හට අර්ථවත් ලෙස නිවැරදි කිරීමට කිසිවක් නැත — පහත අගයන්, වටයෑම සැලකිල්ලට ගත් විට, ලකුණුකරු යොදන අගයන්ම වේ.
+`open-sse/services/autoCombo/modePacks.ts` තුළ පෙර-නිර්වචිත බර පැතිකඩ 6ක් ඇත. එක් එක් ඇසුරුම, තේරීම එක් ඉලක්කයක් වෙත නැඹුරු කිරීම සඳහා පෙරනිමි බර සම්පූර්ණයෙන්ම ප්රතිස්ථාපනය කරයි. සෑම ඇසුරුමකම එකතුව දැනටමත් `1.0`කි (දශමස්ථාන හතරකට මුද්රණය කළ විට `0.9999`), එබැවින් ඇසුරුමක් සක්රියව ඇති විට `normalizeScoringWeights()` හට අර්ථවත් ලෙස නිවැරදි කිරීමට කිසිවක් නැත — පහත අගයන්, වටයෑම සැලකිල්ලට ගත් විට, ලකුණු ගණකය යොදන අගයන්ම වේ.
 
 | සාධකය                 | ship-fast  | cost-saver | quality-first | offline-friendly | reliability-first | chaos-mode |
 | :-------------------- | :--------- | :--------- | :------------ | :--------------- | :---------------- | :--------- |
@@ -227,30 +218,31 @@ Auto-Combo Engine එක **සාධක 16ක ලකුණුකරණ ශ්ර
 
 සටහන්:
 
-- **ඇසුරුම්වල `quality` සහ `reliability` අඩංගු වේ** (`quality 0.02`, `quality-first 0.03`; `reliability 0.03`, `reliability-first 0.04`) සහ ඒවා බර සිතියම මුළුමනින්ම ප්රතිස්ථාපනය කරයි (`weights = pack`, ඒකාබද්ධ කිරීමක් නොවේ). `DEFAULT_WEIGHTS` හි `quality 0.03 / reliability 0` අඩංගු වේ; `balanced`/`default` තේරීමෙන් එම පෙරනිමි අගයන් තබා ගන්නා අතර, ඇසුරුමක් තේරීමෙන් ඉහත දක්වා ඇති එම ඇසුරුමේ අගයන් භාවිත වේ. ශීත සංචිතයක (තවමත් නිරීක්ෂණ නොමැති බැවින් `quality 0.5` සහ `reliability 1`) මෙම සාධක දෙක සාමාන්ය ඇසුරුමක් යටතේ `+0.04` (`0.03 + 0.01`), `quality-first` යටතේ `+0.045`, සහ `reliability-first` යටතේ `+0.05` එකතු කරයි.
+- **ඇසුරුම්වල `quality` සහ `reliability` ඇතුළත් වේ** (`quality 0.02`, `quality-first 0.03`; `reliability 0.03`, `reliability-first 0.04`) තවද ඒවා බර සිතියම සම්පූර්ණයෙන්ම ප්රතිස්ථාපනය කරයි (`weights = pack`, ඒකාබද්ධ කිරීමක් නොවේ). `DEFAULT_WEIGHTS` තුළ `quality 0.03 / reliability 0` ඇත; `balanced`/`default` තේරීමෙන් එම පෙරනිමි අගයන් තබාගන්නා අතර, ඇසුරුමක් තේරීමෙන් ඉහත දැක්වෙන එම ඇසුරුමේ අගයන් භාවිත වේ. ආරම්භක සංචිතයකදී (තවමත් නිරීක්ෂණ නොමැති බැවින් `quality 0.5` සහ `reliability 1`) මෙම සාධක දෙක සාමාන්ය ඇසුරුමක් යටතේ `+0.04`ක් (`0.03 + 0.01`), `quality-first` යටතේ `+0.045`ක් සහ `reliability-first` යටතේ `+0.05`ක් එක් කරයි.
 - සෑම ඇසුරුමකම `tierAffinity`, `specificityMatch` සහ `resetWindowAffinity` පැහැදිලිවම `0` ලෙස සකසා ඇත.
-- එක් එක් ඇසුරුමේ අවධාරණය බැලූ බැල්මට:
+- එක් එක් ඇසුරුමේ අවධාරණය කෙටියෙන්:
   - **ship-fast** → latencyInv 0.3048 + health 0.2667 (අඩු ප්රමාදයක් සහිත, සෞඛ්ය සම්පන්න සම්බන්ධතා)
   - **cost-saver** → costInv 0.3324 (ලාභම ටෝකන ජය ගනී)
-  - **quality-first** → taskFit 0.3524 + stability 0.1429 + quality 0.03, ඕනෑම ඇසුරුමකට වඩා ඉහළම අගය (කාර්යය සඳහා හොඳම, ස්ථාවර මාදිලිය)
-  - **offline-friendly** → quota 0.3324 + health 0.2667 (වේගය/පිරිවැය නොසලකා උපරිම අතිරික්ත ධාරිතාව)
-  - **reliability-first** → health 0.3524 + stability 0.1905 + reliability 0.04, ඕනෑම ඇසුරුමකට වඩා ඉහළම අගය (අවම අනපේක්ෂිතතා)
-  - **chaos-mode** → health 0.4000 + taskFit 0.1905 (දෝෂ-එන්නත් කිරීමේ පැතිකඩ)
+  - **quality-first** → taskFit 0.3524 + stability 0.1429 + quality 0.03, සියලු ඇසුරුම් අතරින් ඉහළම අගය (කාර්යය සඳහා හොඳම, අනුකූල ආකෘතිය)
+  - **offline-friendly** → quota 0.3324 + health 0.2667 (වේගය/පිරිවැය නොසලකා උපරිම අමතර ධාරිතාව)
+  - **reliability-first** → health 0.3524 + stability 0.1905 + reliability 0.04, සියලු ඇසුරුම් අතරින් ඉහළම අගය (අවම අනපේක්ෂිත සිදුවීම්)
+  - **chaos-mode** → health 0.4000 + taskFit 0.1905 (දෝෂ-ඇතුළත් කිරීමේ පැතිකඩ)
 
 ### එක් එක් ඉල්ලීම සඳහා පාලක (ශීර්ෂක) — #6023 / #6024 / #6025 / #3470
 
-`auto` සංයෝජනයක්, සංයෝජනයේ ගබඩා කළ වින්යාසය වෙනස් නොකර, ශීර්ෂක තුනක් හරහා **එක් එක් ඉල්ලීම සඳහා** මෙහෙයවිය හැක.
-මේවා අදාළ වන්නේ `auto` උපායමාර්ගයට පමණක් සහ ඒවා රැගෙන එන ඉල්ලීමට පමණි;
+සංයෝජනයේ ගබඩා කර ඇති වින්යාසය වෙනස් නොකර, ශීර්ෂක තුනක් හරහා එක් එක් ඉල්ලීම සඳහා වෙන වෙනම `auto` සංයෝජනයක් මෙහෙයවිය හැක.
+මේවා අදාළ වන්නේ `auto` උපායමාර්ගයට පමණක් වන අතර, ඒවා රැගෙන එන ඉල්ලීම සඳහා පමණි;
 ශීර්ෂකය නොමැති විට සංයෝජනයේ සුරකින ලද `modePack`/`budgetCap`/`budgetFallback` භාවිත වේ.
 
-| ශීර්ෂකය                       | පිළිගන්නා අගයන්                                                                                                                                                                                    | බලපෑම                                                                                                                                                                                                                                            |
-| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `X-OmniRoute-Mode`            | පෙරසැකසුම් අන්වර්ථ නාමයක් (`fast`, `balanced`, `quality`, `cheap`, `reliable`, `offline`) හෝ අමු pack නාමයක් (`ship-fast`, `cost-saver`, `quality-first`, `offline-friendly`, `reliability-first`) | මෙම ඉල්ලීම සඳහා ලකුණුකරණ බර අභිබවා යයි. `balanced`/`default` මඟින් පෙරනිමි බර බලගන්වයි (pack එකක් නැත). නොදන්නා අගයන් නොසලකා හරිනු ලැබේ (වින්යාසය සුරැකේ).                                                                                       |
-| `X-OmniRoute-Budget`          | ධන සංඛ්යාවක් (ඉල්ලීමකට උපරිම USD)                                                                                                                                                                  | දැඩි පිරිවැය සීමාව: ඇස්තමේන්තුගත පිරිවැය එය ඉක්මවන අපේක්ෂකයන් තේරීමට පෙර පෙරා හරිනු ලැබේ. **සෑම** අපේක්ෂකයෙකුම එය ඉක්මවන විට සිදුවන්නේ කුමක්ද යන්න පහත `X-OmniRoute-Budget-Fallback` මඟින් පාලනය වේ.                                             |
-| `X-OmniRoute-Budget-Fallback` | `cheapest` (පෙරනිමිය, අන්වර්ථ නාම: `cheapest-viable`, `soft`) හෝ `strict` (අන්වර්ථ නාම: `block`, `hard`)                                                                                           | `cheapest`: තවමත් සීමාව ඉක්මවුවද, සමස්තයෙන් අඩුම පිරිවැය සහිත අපේක්ෂකයා වෙත පසුබසී (පැරණි හැසිරීම). `strict`: තේරීම ප්රතික්ෂේප කරයි — නිහඬව අධික මුදලක් වැය කිරීම වෙනුවට ඉල්ලීම `HTTP 402` සමඟ වහාම අසාර්ථක වේ. නොදන්නා අගයන් නොසලකා හරිනු ලැබේ. |
+| ශීර්ෂකය                       | පිළිගන්නා අගයන්                                                                                                                                                                                   | බලපෑම                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| :---------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `X-OmniRoute-Mode`            | පෙර සැකසූ අන්වර්ථ නාමයක් (`fast`, `balanced`, `quality`, `cheap`, `reliable`, `offline`) හෝ අමු pack නාමයක් (`ship-fast`, `cost-saver`, `quality-first`, `offline-friendly`, `reliability-first`) | මෙම ඉල්ලීම සඳහා ලකුණුකරණ බර අභිබවා යයි. `balanced`/`default` පෙරනිමි බර බලෙන් යොදවයි (pack එකක් නැත). නොදන්නා අගයන් නොසලකා හරිනු ලැබේ (වින්යාසය සුරැකේ).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+| `X-OmniRoute-Budget`          | ධන සංඛ්යාවක් (එක් ඉල්ලීමකට උපරිම USD)                                                                                                                                                             | දැඩි පිරිවැය සීමාව: ඇස්තමේන්තුගත පිරිවැය එය ඉක්මවන අපේක්ෂකයන් තේරීමට පෙර පෙරහන් කරනු ලැබේ. **සෑම** අපේක්ෂකයෙකුම එය ඉක්මවන විට සිදුවන්නේ කුමක්ද යන්න පහත `X-OmniRoute-Budget-Fallback` මඟින් පාලනය වේ.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| `X-OmniRoute-Budget-Fallback` | `cheapest` (පෙරනිමිය, අන්වර්ථ නාම: `cheapest-viable`, `soft`) හෝ `strict` (අන්වර්ථ නාම: `block`, `hard`)                                                                                          | `cheapest`: තවමත් සීමාව ඉක්මවුවද, සමස්තයක් ලෙස අඩුම මිලැති අපේක්ෂකයා වෙත පසුබසී (පැරණි හැසිරීම). `strict`: තේරීම ප්රතික්ෂේප කරයි — නිහඬව අධික වියදම් කිරීම වෙනුවට ඉල්ලීම `HTTP 402` සමඟ වහාම අසාර්ථක වේ. නොදන්නා අගයන් නොසලකා හරිනු ලැබේ.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| `X-OmniRoute-Effort`          | `auto` (අනෙකුත් අගයන් වෙන් කර ඇත)                                                                                                                                                                 | අනුවර්තී චින්තන අයවැය: ඉල්ලීමෙහි කිසිදු ආකාරයක තර්කන ක්ෂේත්රයක් (`reasoning_effort`, `reasoning`, `thinking`) **නොමැති** විට, gateway එක නිර්ණායක ඉල්ලීම්-ව්යුහ සංඥා (අවසන් පරිශීලක පණිවිඩයේ දිග, අවසන් පරිශීලක පණිවිඩය දක්වා සන්දර්භයේ ප්රමාණය, පෙර tool ප්රතිඵල, tool-loop ගැඹුර) මත පදනම්ව `auto` යන්න `low`/`medium`/`high` ලෙස විසඳයි. සංඥා වත්මන් වාරයට සීමා වේ — අවසන් පරිශීලක පණිවිඩයෙන් පසු ඇති සියල්ල නොසලකා හරිනු ලැබේ — එබැවින් tool loop එකක සෑම ඉල්ලීමක්ම එකම මට්ටමට විසඳේ (වාරයකට state රහිත pin කිරීම, session state නොමැත, upstream prompt-cache prefix බිඳ දමන loop අතරතුර මට්ටම ඉහළ නැංවීමක් නොමැත). client විසින් පැහැදිලිව සපයන තර්කන ක්ෂේත්රයකට සැමවිටම ප්රමුඛත්වය හිමි වේ. upstream dispatch එක OpenAI Chat Completions ආකෘතියට (`targetFormat === FORMATS.OPENAI`) විසඳෙන ඉල්ලීම්වලට සීමා වේ — `reasoning_effort` යනු OpenAI ආකෘතියේ ක්ෂේත්රයක් බැවින්, Claude හෝ Gemini ඉලක්ක කරගත් ඉල්ලීමකදී මෙම ශීර්ෂකය කිසිදු බලපෑමක් නොකරයි (`open-sse/handlers/chatCore/adaptiveEffortWiring.ts` බලන්න). |
 
 ```bash
-# වේගවත්ම පැතිකඩ බලගන්වා, මෙම ඉල්ලීම $0.05කට සීමා කර, අධික මුදලක් වැය කිරීම වෙනුවට දැඩිව අවහිර කරන්න
+# වේගවත්ම පැතිකඩ බලහත්කාරයෙන් යොදන්න, මෙම ඉල්ලීම $0.05කට සීමා කරන්න, සහ සීමාව ඉක්මවා වියදම් කිරීම වෙනුවට දැඩිව අවහිර කරන්න
 curl -sS http://localhost:20128/v1/chat/completions \
   -H "Content-Type: application/json" \
   -H "X-OmniRoute-Mode: fast" \
@@ -259,58 +251,105 @@ curl -sS http://localhost:20128/v1/chat/completions \
   -d '{"model":"auto","messages":[{"role":"user","content":"hi"}]}'
 ```
 
-විසඳීම ශුද්ධ ශ්රිතයකි (`open-sse/services/autoCombo/requestControls.ts`); විසඳන ලද
-අගයන් එන්ජිමේ පවතින `config.modePack` / `config.budgetCap` /
+විසඳීම ශුද්ධ ශ්රිතයකි (`open-sse/services/autoCombo/requestControls.ts`); විසඳන ලද අගයන් එන්ජිමේ පවතින `config.modePack` / `config.budgetCap` /
 `config.budgetFallback` ආදාන වෙත යොමු කෙරේ. combo එකක ගබඩා කර ඇති `config.budgetFallback` ("strict" |
-"cheapest") මඟින් ස්ථිර ප්රතිපත්තිය සකසයි; ශීර්ෂකය එක් ඉල්ලීමක් සඳහා එය අභිබවා යයි.
+"cheapest") මඟින් ස්ථිර ප්රතිපත්තිය සකසයි; ශීර්ෂකය තනි ඉල්ලීමක් සඳහා එය අභිබවා යයි.
 
-## සියලුම රවුටින් ක්රමෝපායන්
+## සියලුම මාර්ගගත කිරීමේ උපායමාර්ග
 
-OmniRoute හි combo එන්ජිම **රවුටින් ක්රමෝපායන් 19කට** සහාය දක්වයි (`src/shared/constants/routingStrategies.ts` → `ROUTING_STRATEGY_VALUES` හි ප්රකාශ කර ඇත). Auto Combo එන්ජිම `auto` ක්රමෝපාය යටතේ ලබා දී ඇති අතර, අනෙක් ඒවා සුරැකී පවතින combos සඳහා ලබා ගත හැක.
+OmniRoute හි combo එන්ජිම **මාර්ගගත කිරීමේ උපායමාර්ග 19කට** සහාය දක්වයි (`src/shared/constants/routingStrategies.ts` → `ROUTING_STRATEGY_VALUES` තුළ ප්රකාශ කර ඇත). Auto Combo එන්ජිම `auto` උපායමාර්ගය යටතේ නිරාවරණය කර ඇත; අනෙකුත් ඒවා සුරැකි combos සඳහා ලබා ගත හැකිය.
 
-| ක්රමෝපාය            | විස්තරය                                                                                                                                                                                                   |
-| :------------------ | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `priority`          | පැහැදිලි ප්රමුඛතාවක් සහිත, පළමු ඉලක්කයට මුල්තැන දෙන අනුපිළිවෙළගත ලැයිස්තුවක්                                                                                                                              |
-| `weighted`          | එක් එක් ඉලක්කයේ බර අනුව බරිත අහඹු තේරීම                                                                                                                                                                   |
-| `round-robin`       | ඉලක්ක අතර අනුපිළිවෙළින් චක්රීයව ගමන් කිරීම                                                                                                                                                                |
-| `context-relay`     | ඉලක්ක අතර සන්දර්භය භාර දීම (දිගු සංවාද)                                                                                                                                                                   |
-| `fill-first`        | ඊළඟ ඉලක්කයට යාමට පෙර එක් එක් ඉලක්කයේ කෝටාව පිරවීම                                                                                                                                                         |
-| `p2c`               | තේරීම් 2ක බලය මත පදනම් වූ අහඹු භාර සමතුලනය                                                                                                                                                                |
-| `random`            | ඒකාකාර අහඹු තේරීම                                                                                                                                                                                         |
-| `least-used`        | දැනට අවම භාරයක් ඇති ඉලක්කය තේරීම                                                                                                                                                                          |
-| `cost-optimized`    | නාමාවලි මිලකරණය අනුව එක් ඉල්ලීමකට වැය වන $ අවම කිරීම                                                                                                                                                      |
-| `reset-aware` ⭐    | කෝටාව යළි පිහිටුවන වේලාව අනුව ප්රමුඛත්වය දීම — කෙටි යළි පිහිටුවීමේ කවුළු ඉහළින් ශ්රේණිගත කෙරේ                                                                                                             |
-| `reset-window`      | ඉක්මනින්ම යළි පිහිටුවෙන කෝටා කවුළු සහිත ඉලක්කවලට ප්රමුඛත්වය දීම                                                                                                                                           |
-| `headroom`          | වැඩිම ඉතිරි කෝටා ඉඩ ප්රමාණයක් ඇති ඉලක්කය තේරීම                                                                                                                                                            |
-| `strict-random`     | පුනරාවර්තන අනුපිටපත් ඉවත් නොකර අහඹු ලෙස තේරීම                                                                                                                                                             |
-| `auto`              | Auto Combo ලකුණුකරණය (සාධක 16ක්) භාවිත කිරීම — **නිර්දේශිතයි**                                                                                                                                            |
-| `lkgp`              | අවසන් වරට සාර්ථක වූ සැපයුම්කරුට ස්ථාවර කරන Last-Known-Good Path, ඉන්පසු නීති වෙත පසුබැසීම                                                                                                                 |
-| `context-optimized` | වත්මන් සන්දර්භ ප්රමාණයට වඩාත්ම ගැළපෙන ඉලක්කය තේරීම                                                                                                                                                        |
-| `cache-optimized`   | prompt-cache ගැළපීම අනුව ඉලක්ක නැවත පෙළගැස්වීම — මෙම ඉල්ලීමේ cache කළ prefix එක දැනටමත් රඳවා ගැනීමට වැඩිම ඉඩක් ඇති සම්බන්ධතාව පළමුව උත්සාහ කෙරේ (`open-sse/services/combo/promptCacheAffinity.ts`, #8008) |
-| `fusion` 🧬         | සමාන්තරව models මණ්ඩලයකට ඉල්ලීම යවා, පසුව judge එකක් හරහා එක් පිළිතුරක් සංස්ලේෂණය කිරීම (පහත බලන්න)                                                                                                       |
-| `pipeline`          | ඉලක්ක අනුක්රමිකව ධාවනය කරමින්, එක් එක් පියවරේ ප්රතිදානය ඊළඟ පියවරේ ආදානයට යොමු කිරීම; ආපසු ලබා දෙන්නේ අවසාන පිළිතුර පමණි (#6396)                                                                          |
+| උපායමාර්ගය          | විස්තරය                                                                                                                                                                                                                  |
+| :------------------ | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `priority`          | පැහැදිලි ප්රමුඛතාවක් සහිත, පළමු ඉලක්කය මූලික කරගත් අනුපිළිවෙළ ලැයිස්තුව                                                                                                                                                  |
+| `weighted`          | එක් එක් ඉලක්කයේ බර අනුව බර තැබූ අහඹු තේරීම                                                                                                                                                                               |
+| `round-robin`       | ඉලක්ක අතර අනුපිළිවෙළින් චක්රීයව ගමන් කිරීම (කාණ්ඩගතව; පහත බලන්න)                                                                                                                                                         |
+| `context-relay`     | ඉලක්ක අතර සන්දර්භය භාර දීම (දිගු සංවාද)                                                                                                                                                                                  |
+| `fill-first`        | ඊළඟ ඉලක්කයට යාමට පෙර එක් එක් ඉලක්කයේ කෝටාව පිරවීම                                                                                                                                                                        |
+| `p2c`               | තේරීම් 2ක බලය මත පදනම් වූ අහඹු භාර තුලනය                                                                                                                                                                                 |
+| `random`            | ඒකාකාර අහඹු තේරීම                                                                                                                                                                                                        |
+| `least-used`        | දැනට අඩුම භාරය ඇති ඉලක්කය තේරීම                                                                                                                                                                                          |
+| `cost-optimized`    | නාමාවලි මිලකරණය අනුව එක් ඉල්ලීමකට වැය වන $ අවම කිරීම                                                                                                                                                                     |
+| `reset-aware` ⭐    | කෝටාව යළි පිහිටුවන වේලාව අනුව ප්රමුඛත්වය දීම — කෙටි යළි පිහිටුවීමේ කාල කවුළු ඉහළින් ශ්රේණිගත කෙරේ                                                                                                                        |
+| `reset-window`      | කෝටා කාල කවුළුව ඉක්මනින්ම යළි පිහිටුවන ඉලක්කවලට ප්රමුඛත්වය දීම                                                                                                                                                           |
+| `headroom`          | වැඩිම ඉතිරි කෝටා ඉඩක් ඇති ඉලක්කය තේරීම                                                                                                                                                                                   |
+| `strict-random`     | පුනරාවර්තනවල අනුපිටපත් ඉවත් කිරීමකින් තොර අහඹු තේරීම                                                                                                                                                                     |
+| `auto`              | Auto Combo ලකුණුකරණය (සාධක 16ක්) භාවිත කිරීම — **නිර්දේශිතයි**                                                                                                                                                           |
+| `lkgp`              | අවසන් වරට සාර්ථක වූ මාර්ගය (අවසන් සාර්ථක සැපයුම්කරු වෙත ස්ථාවර වී, පසුව නීති වෙත පසුබැසීම)                                                                                                                               |
+| `context-optimized` | වත්මන් සන්දර්භ ප්රමාණයට වඩාත්ම ගැළපෙන ඉලක්කය තේරීම                                                                                                                                                                       |
+| `cache-optimized`   | prompt-cache සම්බන්ධතාව අනුව ඉලක්ක නැවත අනුපිළිවෙළට සැකසීම — මෙම ඉල්ලීමේ cache කළ prefix එක දැනටමත් රඳවාගෙන සිටීමට වැඩිම ඉඩක් ඇති සම්බන්ධතාව පළමුව උත්සාහ කෙරේ (`open-sse/services/combo/promptCacheAffinity.ts`, #8008) |
+| `fusion` 🧬         | සමාන්තරව models සමූහයකට ඉල්ලීම යවා, පසුව විනිශ්චයකරුවෙකු හරහා එක් පිළිතුරක් සංස්ලේෂණය කිරීම (පහත බලන්න)                                                                                                                  |
+| `pipeline`          | ඉලක්ක අනුක්රමිකව ක්රියාත්මක කරමින්, සෑම පියවරකම ප්රතිදානය ඊළඟ පියවරේ ආදානයට යොමු කිරීම; ආපසු ලබා දෙන්නේ අවසාන පිළිතුර පමණි (#6396)                                                                                       |
 
 ⭐ = v3.8.0 හි අලුත් · 🧬 = v3.8.36 හි අලුත්
 
-### `weighted` හි අර්ථ විග්රහය
+### `weighted` හි අර්ථවිවරණය
 
-`weighted` යනු **එක් එක් ඉල්ලීම සඳහා සමානුපාතික අහඹු තේරීමකි**
-(`open-sse/services/combo/targetSorters.ts` → `selectWeightedTarget`), සමකාරකයක් නොවේ:
+`weighted` යනු **එක් එක් ඉල්ලීම සඳහා සිදු කරන සමානුපාතික අහඹු තේරීමකි**
+(`open-sse/services/combo/targetSorters.ts` → `selectWeightedTarget`), සමකරනයක් නොවේ:
 
 - එක් එක් ඉල්ලීම `weight / totalWeight` සම්භාවිතාව අනුව **එක්** පියවරක් තෝරා ගනී; ඉතිරි පියවර
-  එම ඉල්ලීම සඳහා වන පසුබැසීමේ දාමය ලෙස බරේ අවරෝහණ අනුපිළිවෙළට සකස් කෙරේ.
-- බර `0` වන (හෝ බරක් නොමැති) පියවරක්, වෙනත් යම් පියවරක
-  බර > 0 වන තාක් **කිසි විටෙක තෝරා නොගනී** — එය භාවිත කළ හැක්කේ තෝරාගත් පියවර අසාර්ථක වූ පසු පසුබැසීමක් ලෙස පමණි. තේරීම ඒකාකාර වන්නේ **සියලු**
-  බර 0 වූ විට පමණි.
-- සියලු ඉලක්ක ලබාගත නොහැකි පියවර — provider circuit breaker `OPEN`, connection
-  cooldown, model lockout — තේරීම සිදුවීමට පෙර ඉවත් කෙරේ
-  (`open-sse/services/combo/targetResolution.ts`), එබැවින් සෞඛ්ය සම්පන්න එක් පියවරකට තාවකාලිකව
-  සෑම ඉල්ලීමක්ම ජයගත හැක.
-- `stickyWeightedLimit` (combo වින්යාසය, පෙරනිමි `1` = අක්රියයි) නැවත තේරීමට පෙර අඛණ්ඩ
-  සාර්ථකත්ව ගණනක් සඳහා තෝරාගත් පියවරට ස්ථාවරව තබයි.
+  එම ඉල්ලීම සඳහා පසුබැසීමේ දාමය ලෙස බර අවරෝහණ අනුපිළිවෙළට සකසනු ලැබේ.
+- බර `0` වන (හෝ බරක් නොමැති) පියවරක්, වෙනත් කිසියම් පියවරක
+  බර > 0 වන තාක් **කිසිදා තෝරා නොගනී** — එයට පසුබැසීමක් ලෙස ක්රියා කළ හැක්කේ තෝරාගත් පියවර අසාර්ථක වූ පසුව පමණි. තේරීම ඒකාකාර වන්නේ **සියලුම**
+  බර 0 වන විට පමණි.
+- සියලු ඉලක්ක ලබාගත නොහැකි පියවර — සැපයුම්කරුගේ circuit breaker එක `OPEN` වීම, සම්බන්ධතාව
+  cooldown වීම, model lockout වීම — තේරීම සිදුවීමට පෙර එයින් ඉවත් කෙරේ
+  (`open-sse/services/combo/targetResolution.ts`), එබැවින් එක් සෞඛ්ය සම්පන්න පියවරකට තාවකාලිකව
+  සෑම ඉල්ලීමක්ම හිමි විය හැක.
+- `stickyWeightedLimit` (combo වින්යාසය, පෙරනිමිය `1` = අක්රියයි) නැවත තේරීමක් කිරීමට පෙර, තෝරාගත් පියවර එම සාර්ථකත්ව ගණනට
+  අඛණ්ඩව ස්ථාවර කර තබයි.
 
-දැඩි භ්රමණයක් සඳහා `round-robin` භාවිත කරන්න; `weighted` හි සමාන බර මඟින් ලැබෙන්නේ සංඛ්යානමය — දැඩි
-නොවන — සමතුලිතතාවකි.
+දැඩි භ්රමණයක් සඳහා `round-robin` භාවිත කරන්න; `weighted` සඳහා සමාන බර ලබා දීමෙන් ලැබෙන්නේ සංඛ්යානමය — දැඩි
+නොවන — තුලනයකි.
+
+### Agentic pipeline ප්රකාරය
+
+පියවර දෙකක `pipeline` සංයෝජනයකට `config.agenticOrchestration.enabled` භාවිතයෙන් සැලසුම්කරු/ක්රියාත්මක කරන්නා මාර්ගගත කිරීම තෝරාගත හැක.
+පළමු ඉලක්කය සැලසුම් කිරීම සහ අවසාන පිළිතුරු භාර ගනී;
+දෙවන ඉලක්කය සේවාලාභියාට ස්වදේශීය මෙවලම් ඇමතුම් නිකුත් කරයි. OmniRoute ඉල්ලීම් ප්රොටෝකෝලයෙන් මෙවලම්-ප්රතිඵල
+අඛණ්ඩ කිරීම් හඳුනාගෙන, තවත් මෙවලම් වටයක්
+අවශ්යදැයි සැලසුම්කරුගෙන් විමසා, ක්රියාත්මක කරන්නා හෝ සැලසුම්කරු යන දෙකෙන් එකක් සේවාලාභියාට පෙනෙන අවසාන
+පියවර ලෙස ගතිකව තෝරයි.
+
+```json
+{
+  "strategy": "pipeline",
+  "models": [{ "model": "provider/planner" }, { "model": "provider/executor" }],
+  "config": {
+    "agenticOrchestration": { "enabled": true, "maxToolRounds": 8 }
+  }
+}
+```
+
+ක්රියාත්මක කරන්නාට එක් ප්රතිචාරයක ස්වාධීන ඇමතුම් කිහිපයක් නිකුත් කළ හැක. පරායත්ත ඇමතුම්
+පසුකාලීන සේවාලාභී මෙවලම්-ප්රතිඵල වාරවල හසුරුවන අතර, සැලසුම්කරු සෑම ප්රතිඵලයක්ම සමාලෝචනය කරයි.
+`maxToolRounds` හි පෙරනිමි අගය `8` වන අතර එය `1`–`32` පිළිගනී; එම සීමාවට ළඟා වූ පසු, සැලසුම්කරු
+ලබාගත හැකි හොඳම අවසාන පිළිතුර සැපයිය යුතුය. අභ්යන්තර සැලසුම්කරු තීරණ බෆරගත කරන අතර,
+තෝරාගත් සේවාලාභියාට පෙනෙන ප්රතිචාරය මුල් ප්රවාහකරණ අභිරුචිය රඳවා ගනී.
+
+### `round-robin` ස්ථාවර කාණ්ඩය සහ ගිණුම් පුළුල් කිරීම
+
+Round-robin ක්රියා කරන්නේ කාණ්ඩ වශයෙන් මිස පියවරකට එක් ඉල්ලීමක් වශයෙන් නොවේ:
+
+- `stickyRoundRobinLimit` (පළමුව සංයෝජන වින්යාසය, ඉන්පසු `comboStickyRoundRobinLimit`, ඉන්පසු
+  `settings.stickyRoundRobinLimit`, පෙරනිමිය **3**) භ්රමණය වීමට පෙර එම ඉලක්කයම
+  එම අඛණ්ඩ සාර්ථකත්ව ගණන සඳහා රඳවා ගනී. එක් ඉල්ලීමකට වරක්
+  භ්රමණය කිරීමට සංයෝජන අතික්රමණය `1` ලෙස සකසන්න. සංයෝජන සංස්කාරකය ඵලදායී අගය සහ එය පැමිණි ස්තරය පෙන්වයි.
+- `connectionAwareExpansion` (පළමුව සංයෝජන වින්යාසය, ඉන්පසු සැකසුම්, පෙරනිමිය **false**) භ්රමණයට පෙර
+  සෑම සැපයුම්කරු-මට්ටමේ පියවරක්ම ගිණුමකට වෙන් වූ ඉලක්ක බවට පුළුල් කරයි. B-කාණ්ඩයේ උපායමාර්ග
+  (priority, weighted, round-robin, random, p2c, least-used, cost-optimized, lkgp,
+  fill-first, strict-random, context-optimized, cache-optimized, context-relay, fusion,
+  pipeline) මෙය සක්රිය කරන තුරු සැපයුම්කරු-මට්ටමේ දසුනක් පවත්වා ගනී. සංයෝජන සංස්කාරකය
+  inherit / on / off විකල්ප ලබා දෙයි; inherit ගෝලීය පෙරනිමිය (off) භාවිත කරයි.
+- ප්රේරක-හැඹිලි ස්ථානීයත්ව මාර්ගගත කිරීම (`promptCacheAffinityEnabled`, පෙරනිමිය **true**)
+  ගැළපෙන හැඹිලි යතුරු එක් ගිණුමක රැඳෙන පරිදි අමුණා ඇති සම්බන්ධතා නැවත අනුපිළිවෙළට සකසයි. අමුණා ඇති
+  ගිණුමකට වෙන් වූ පියවර හරහා සිදුවන round-robin සහ weighted භ්රමණයට වඩා මෙයට ප්රමුඛත්වය ලැබේ.
+  ඔබට දැඩි භ්රමණයක් අවශ්ය නම් Settings → Combo defaults යටතේ එය අක්රිය කරන්න. එක් එක් සංයෝජනය සඳහා අතික්රමණයක් නොමැත.
+
+එක් ආකෘතියක බහු-ගිණුම් භ්රමණය සඳහා, අමුණා ඇති `connectionId` තුනක් වෙනුවට ස්ථාවර සීමාව `1` සහිත
+**එක් ගතික-ගිණුම් පියවරකට** (හිස් `connectionId`, සම්පූර්ණ සංචිතය) ප්රමුඛත්වය දෙන්න.
+RR ගණකය ඉදිරියට යන විටත්, අමුණා ඇති පියවර සහ අනුබද්ධතාව එක්ව එකම ගිණුම මතට සංකෝචනය වේ.
 
 ## Fusion උපායමාර්ගය
 

@@ -15,6 +15,7 @@ import {
   type SyncedAvailableModelInput,
 } from "./models/synced";
 import {
+  deleteSyncedAvailableModelsForProvider as deleteSyncedAvailableModelsForProviderInternal,
   finishSyncedAvailableModelsWrite,
   persistCanonicalSyncedAvailableModels,
 } from "./models/syncedAvailableModelPersistence";
@@ -51,6 +52,9 @@ export {
   setModelAlias,
   deleteModelAlias,
   deleteModelAliasesForProvider,
+  getManagedModelAliasNames,
+  markManagedModelAlias,
+  unmarkManagedModelAlias,
 } from "./models/aliases";
 export { getMitmAlias, setMitmAliasAll } from "./models/mitmAlias";
 export type { SyncedAvailableModel } from "./models/synced";
@@ -61,8 +65,26 @@ export {
   type CustomModelVisionDatabase,
   type CustomModelVisionOverrideReadOptions,
 } from "./models/customVisionOverride";
+export {
+  getSyncedAvailableModelVision,
+  listSyncedAvailableModelVision,
+  type SyncedAvailableModelVisionMap,
+  type SyncedAvailableModelVisionDatabase,
+  type SyncedAvailableModelVisionReadOptions,
+} from "./models/syncedAvailableModelVision";
 
 // ──────────────── Custom Models ────────────────
+
+function notifyQuotaCombosForProvider(providerId: string): void {
+  void (async () => {
+    try {
+      const { syncQuotaCombosForProvider } = await import("./quotaPools");
+      await syncQuotaCombosForProvider(providerId);
+    } catch {
+      // Non-fatal: quota combo sync errors should not break model operations
+    }
+  })();
+}
 
 export async function getCustomModels(providerId?: string) {
   const db = getDbInstance();
@@ -128,7 +150,12 @@ export async function addCustomModel(
   // custom OpenAI-compatible video models. Persisted on the model row; the
   // /v1/videos/generations handler reads it back to pick the job/poll path.
   generationConfig?: { preset: string },
-  isFree?: boolean
+  isFree?: boolean,
+  extraMeta?: {
+    dimensions?: number;
+    supportedInputTypes?: string[];
+    modelType?: "chat" | "embedding" | "image" | "rerank";
+  }
 ) {
   const db = getDbInstance();
   const row = db
@@ -156,12 +183,20 @@ export async function addCustomModel(
     ...(typeof supportsVision === "boolean" ? { supportsVision } : {}),
     ...(typeof isFree === "boolean" ? { isFree } : {}),
     ...(generationConfig && generationConfig.preset ? { generationConfig } : {}),
+    ...(typeof extraMeta?.dimensions === "number" && extraMeta.dimensions > 0
+      ? { dimensions: extraMeta.dimensions }
+      : {}),
+    ...(Array.isArray(extraMeta?.supportedInputTypes)
+      ? { supportedInputTypes: extraMeta.supportedInputTypes }
+      : {}),
+    ...(typeof extraMeta?.modelType === "string" ? { modelType: extraMeta.modelType } : {}),
   };
   models.push(model);
   db.prepare(
     "INSERT OR REPLACE INTO key_value (namespace, key, value) VALUES ('customModels', ?, ?)"
   ).run(providerId, JSON.stringify(models));
   finishModelCatalogWriteWithBackup();
+  notifyQuotaCombosForProvider(providerId);
   return model;
 }
 
@@ -282,6 +317,7 @@ export async function replaceCustomModels(
   }
 
   finishModelCatalogWriteWithBackup();
+  notifyQuotaCombosForProvider(providerId);
   return merged;
 }
 
@@ -325,6 +361,7 @@ export async function deleteImportedCustomModels(providerId: string): Promise<st
   );
   for (const modelId of removedIds) removeModelCompatOverride(providerId, modelId);
   finishModelCatalogWriteWithBackup();
+  notifyQuotaCombosForProvider(providerId);
   return removedIds;
 }
 
@@ -356,6 +393,7 @@ export async function removeCustomModel(providerId: string, modelId: string) {
 
   removeModelCompatOverride(providerId, modelId);
   finishModelCatalogWriteWithBackup();
+  notifyQuotaCombosForProvider(providerId);
   return true;
 }
 
@@ -536,6 +574,7 @@ export async function replaceSyncedAvailableModelsForConnection(
   const key = `${providerId}:${connectionId}`;
   const normalizedModels = normalizeSyncedAvailableModels(models, providerId);
   persistCanonicalSyncedAvailableModels(key, normalizedModels, normalizeSyncedAvailableModels);
+  notifyQuotaCombosForProvider(providerId);
   // #12849: stamp the sync time on every successful sync — even a re-sync that
   // returns an unchanged list proves the catalog is still current, so staleness
   // gating in getActiveSyncedCatalog must not treat it as aging regardless.
@@ -592,7 +631,10 @@ export async function removeSyncedAvailableModel(
   });
 
   removeModel();
-  if (removedAny) finishSyncedAvailableModelsWrite();
+  if (removedAny) {
+    finishSyncedAvailableModelsWrite();
+    notifyQuotaCombosForProvider(providerId);
+  }
   return removedAny;
 }
 
@@ -609,7 +651,10 @@ export async function deleteSyncedAvailableModelsForConnection(
   const result = db
     .prepare("DELETE FROM key_value WHERE namespace = 'syncedAvailableModels' AND key = ?")
     .run(key);
-  if (result.changes > 0) finishSyncedAvailableModelsWrite();
+  if (result.changes > 0) {
+    finishSyncedAvailableModelsWrite();
+    notifyQuotaCombosForProvider(providerId);
+  }
   return getSyncedAvailableModels(providerId);
 }
 
@@ -641,15 +686,8 @@ export async function cleanupProviderModelsAfterConnectionDelete(
  * Returns the number of connection-scoped synced model lists removed.
  */
 export async function deleteSyncedAvailableModelsForProvider(providerId: string): Promise<number> {
-  const db = getDbInstance();
-  const keyPrefix = `${providerId}:`;
-  const result = db
-    .prepare(
-      "DELETE FROM key_value WHERE namespace = 'syncedAvailableModels' AND substr(key, 1, ?) = ?"
-    )
-    .run(keyPrefix.length, keyPrefix);
-  const changes = Number(result.changes || 0);
-  if (changes > 0) finishSyncedAvailableModelsWrite();
+  const changes = await deleteSyncedAvailableModelsForProviderInternal(providerId);
+  if (changes > 0) notifyQuotaCombosForProvider(providerId);
   return changes;
 }
 
@@ -674,7 +712,10 @@ export async function pruneStaleSyncedAvailableModelsForProvider(
     )
     .run(`${keyPrefix}%`, ...allowedKeys);
   const changes = Number(result.changes || 0);
-  if (changes > 0) finishSyncedAvailableModelsWrite();
+  if (changes > 0) {
+    finishSyncedAvailableModelsWrite();
+    notifyQuotaCombosForProvider(providerId);
+  }
   return changes;
 }
 
@@ -700,20 +741,37 @@ function applyTriStateBooleanOverride(
 export async function updateCustomModel(
   providerId: string,
   modelId: string,
-  updates: Record<string, unknown> = {}
+  updates: Record<string, unknown> = {},
+  options: { createIfMissing?: boolean } = {}
 ) {
   const db = getDbInstance();
   const row = db
     .prepare("SELECT value FROM key_value WHERE namespace = 'customModels' AND key = ?")
     .get(providerId);
-  if (!row) return null;
 
-  const value = getKeyValue(row).value;
-  if (!value) return null;
+  const value = row ? getKeyValue(row).value : null;
+  const models: JsonRecord[] = value ? JSON.parse(value) : [];
+  let index = models.findIndex((m: JsonRecord) => m.id === modelId);
 
-  const models = JSON.parse(value);
-  const index = models.findIndex((m: JsonRecord) => m.id === modelId);
-  if (index === -1) return null;
+  if (index === -1) {
+    if (!options.createIfMissing) return null;
+    // A model discovered via sync/passthrough (syncedAvailableModels) has no
+    // customModels row until an operator explicitly overrides one of its
+    // fields -- PUT /api/provider-models is exactly that "set an override"
+    // action, so upsert here (same default shape as addCustomModel()) instead
+    // of 404ing on the very save it exists to serve. Observed live: a
+    // llama.cpp connection's auto-discovered embedding model had no way to be
+    // marked "supports embeddings" because it had never been explicitly
+    // imported as a custom model first.
+    models.push({
+      id: modelId,
+      name: modelId,
+      source: "manual",
+      apiFormat: "chat-completions",
+      supportedEndpoints: ["chat"],
+    });
+    index = models.length - 1;
+  }
 
   const current = models[index];
   const currentCompat = (current as JsonRecord).compatByProtocol as CompatByProtocolMap | undefined;
@@ -784,10 +842,12 @@ export async function updateCustomModel(
 
   models[index] = next;
 
-  db.prepare("UPDATE key_value SET value = ? WHERE namespace = 'customModels' AND key = ?").run(
-    JSON.stringify(models),
-    providerId
-  );
+  // INSERT OR REPLACE (not UPDATE): the createIfMissing path above may be
+  // writing this provider's customModels row for the first time, and an
+  // UPDATE...WHERE would silently match zero rows in that case.
+  db.prepare(
+    "INSERT OR REPLACE INTO key_value (namespace, key, value) VALUES ('customModels', ?, ?)"
+  ).run(providerId, JSON.stringify(models));
 
   finishModelCatalogWriteWithBackup();
   return next;
@@ -957,8 +1017,7 @@ export function getHiddenModelsByProvider(modality: string = "chat"): Map<string
                   {
                     isHidden: Boolean(record.isHidden),
                     hiddenModalities: record.hiddenModalities as
-                      | Record<string, boolean>
-                      | undefined,
+                      Record<string, boolean> | undefined,
                   },
                   modality
                 )
